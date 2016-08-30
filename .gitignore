@@ -1,0 +1,6 @@
+bower_components
+node_modules
+public/stylesheets/.sass-cache/*
+npm-debug.log
+views/debug.jade
+data/*

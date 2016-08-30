@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      .col-md-12
+        h2(class='text-center') Login | Sign Up
+      #login-register.col-md-4.col-md-offset-4
+        ul(class='nav nav-tabs', role='tablist')
+          li(role='presentation', class='active')
+            a(href='#login', aria-controls='login', role='tab', data-toggle='tab') Login
+          li(role='presentation')
+            a(href='#sign-up', aria-controls='sign up', role='tab', data-toggle='tab') Sign Up
+        .tab-content
+          #login(role='tabpanel', class='tab-pane active')
+            form(action='/login', method='post')
+              .form-group
+                label(for='username') Email address
+                input(type='text', class='form-control', id='username', name='username', placeholder='Username or Email')
+              .form-group
+                label(for='password') Password
+                input(type='password', class='form-control', id='password', name='password', placeholder='Password')
+              button(type='submit', class='btn btn-default') Submit
+          #sign-up(role='tabpanel', class='tab-pane')
+            form(action='/signup', method='post')
+              .form-group
+                label(for='name') Name
+                input(type='text', class='form-control', id='name', name='name', placeholder='Name')
+              .form-group
+                label(for='username') Username
+                input(type='text', class='form-control', id='username', name='username', placeholder='Username')
+              .form-group
+                label(for='email') Email address
+                input(type='email', class='form-control', id='email', name='email', placeholder='Email')
+              .form-group
+                label(for='password') Password
+                input(type='password', class='form-control', id='password', name='password', placeholder='Password')
+              .form-group
+                label(for='conf_password') Confirm Password
+                input(type='password', class='form-control', id='conf_password', name='conf_password', placeholder='Confirm Password')
+              .btn-toolbar
+                button(type='submit', class='btn btn-default') Submit
+                button(type='reset', class='btn btn-default') Reset
