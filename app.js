@@ -3,10 +3,11 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var expressSession = require('express-session')
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/nodeauth');
+var db = monk('localhost:27017/nodelogin');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,6 +24,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressSession({
+  secret: 'CY0IZ8LjNB7udySB1mm7TCpTv9DLzUB5',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
