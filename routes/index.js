@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+	sess = req.session;
+
+	if(sess.authid) {
+		res.redirect('users');
+	} else {
+		res.render('index', { title: 'Express' });
+	}
 });
 
 router.post('/login', function (req, res) {
@@ -17,8 +23,8 @@ router.post('/login', function (req, res) {
 	var collection = db.get('users');
 
 	collection.findOne({$or:[{username: username}, {email: username}], password: password}, {}, function(e,doc){
-		req.session.auth_id = doc._id;
-		res.redirect('user');
+		req.session.authid = doc._id;
+		res.redirect('users');
 	});
 });
 
@@ -51,6 +57,11 @@ router.post('/signup', function (req, res) {
 	});
 
   //res.render('index', { title: 'Post' });
+});
+
+router.get('/logout', function (req, res) {
+	req.session.destroy();
+	res.redirect('/');
 });
 
 module.exports = router;

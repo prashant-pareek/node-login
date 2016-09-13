@@ -28,7 +28,7 @@ app.use(expressSession({
   secret: 'CY0IZ8LjNB7udySB1mm7TCpTv9DLzUB5',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: { maxAge: 60000 }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -70,6 +70,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
