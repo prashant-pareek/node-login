@@ -15,7 +15,8 @@ gulp.task('default', function() {
   gulp.src([
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
-    'bower_components/tether/dist/js/tether.min.js'
+    'bower_components/tether/dist/js/tether.min.js',
+    'bower_components/bootstrap-validator/dist/validator.min.js'
   ])
     .pipe(gulp.dest('public/javascripts'));
 });

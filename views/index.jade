@@ -22,22 +22,27 @@ block content
                 input(type='password', class='form-control', id='password', name='password', placeholder='Password')
               button(type='submit', class='btn btn-default') Submit
           #sign-up(role='tabpanel', class='tab-pane')
-            form(action='/signup', method='post')
+            form(id='sign-up-form', action='/signup', method='post')
               .form-group
                 label(for='name') Name
                 input(type='text', class='form-control', id='name', name='name', placeholder='Name')
+                .help-block.with-errors
               .form-group
                 label(for='username') Username
                 input(type='text', class='form-control', id='username', name='username', placeholder='Username')
+                .help-block.with-errors
               .form-group
                 label(for='email') Email address
                 input(type='email', class='form-control', id='email', name='email', placeholder='Email')
+                .help-block.with-errors
               .form-group
                 label(for='password') Password
                 input(type='password', class='form-control', id='password', name='password', placeholder='Password')
+                .help-block.with-errors
               .form-group
                 label(for='conf_password') Confirm Password
                 input(type='password', class='form-control', id='conf_password', name='conf_password', placeholder='Confirm Password')
+                .help-block.with-errors
               .btn-toolbar
                 button(type='submit', class='btn btn-default') Submit
                 button(type='reset', class='btn btn-default') Reset

@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 	if(sess.authid) {
 		res.redirect('users');
 	} else {
-		res.render('index', { title: 'Express' });
+		res.render('index', { title: 'Login' });
 	}
 });
 
@@ -43,7 +43,7 @@ router.post('/signup', function (req, res) {
 	var md5 = require('md5');
 
 	// insert into db
-	collection.insert({
+	/*collection.insert({
 		'name': name,
 		'username': username,
 		'email': email,
@@ -54,9 +54,9 @@ router.post('/signup', function (req, res) {
 		} else {
 			res.redirect('users');
 		}
-	});
+	});*/
 
-  //res.render('index', { title: 'Post' });
+  res.render('index', { title: 'Login' });
 });
 
 router.get('/logout', function (req, res) {
